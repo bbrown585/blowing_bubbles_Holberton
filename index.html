@@ -1,22 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>AirBnB clone</title>
-    </head>
-    <body>        
-        <header> </header>
-        <div class="container">
-            <section class="filters">
-                <button>
-                    Blow A Bubble
-                </button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-            </section>
-        </div>
-        <footer>
-            <p>Blowing Bubbles</p>
-        <p1> TEST </p1>  
-        </footer>
-    </body>
+    <title>Blowing Bubbles</title>
+
+    <link href="https://www.boredapi.com/api/activity" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      function callAPI() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhr.open("GET", "https://www.boredapi.com/api/activity", true);
+        xhr.send();
+      }
+    </script>
+    <script>
+      // ...
+
+      fetch("https://www.boredapi.com/api/activity")
+         .then((response) => { 
+          console.log();
+         })
+  </script>
+    <button onclick="callAPI()">Call API</button>
+  </body>
 </html>
