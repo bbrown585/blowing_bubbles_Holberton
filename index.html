@@ -15,10 +15,10 @@
     <div>
         <h1>Blowing Bubbles</h1>
         <h3>Click on the button to make a bubble</h3>
- 
+          <link href="style.css" rel="stylesheet">
         <!-- Add id to image -->
         <img id="image" src=
-"https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+"https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
             alt="GFG image" />
     </div>
  
@@ -40,7 +40,7 @@
         }
     </script>
     <script>
-        function callAPI() {
+        function getActivity() {
           var xhr = new XMLHttpRequest();
           xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -50,8 +50,21 @@
           xhr.open("GET", "https://www.boredapi.com/api/activity", true);
           xhr.send();
         }
+      
+        function getQuote() {
+          fetch('https://api.quotable.io/random')
+            .then(response => response.json())
+            .then(data => {
+              const quoteElement = document.getElementById('quote');
+              quoteElement.innerHTML = `"${data.content}" - ${data.author}`;
+            })
+            .catch(error => console.error(error));
+        }
       </script>
-      <button onclick="callAPI()">Make a call to API</button>
-</body>
+      
+      <button onclick="getActivity()">Get a random activity</button>
+      <button onclick="getQuote()">Get a random quote</button>
+      <div id="quote"></div>      
+      </body>
  
 </html>
