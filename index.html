@@ -1,36 +1,57 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+ 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Blowing Bubbles</title>
-
-  <!--<link href="https://www.boredapi.com/api/activity" rel="stylesheet" />-->
-  <!--<link href="style.css" rel="stylesheet" />-->
-</head>
-<body>
-  <div id="root"></div>
-  <script>
-    function callAPI() {
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log(this.responseText);
+    <style>
+ 
+        /* Set display to none for image*/
+        #image {
+            display: none;
         }
-      };
-      xhr.open("GET", "https://www.boredapi.com/api/activity", true);
-      xhr.send();
-    }
-  </script>
-  <!--<script>
-    // ...
-
-    fetch("https://www.boredapi.com/api/activity")
-        .then((response) => { 
-        console.log();
-        })
-</script>-->
-  <button onclick="callAPI()">Call API</button>
+    </style>
+</head>
+ 
+<body>
+    <div>
+        <h1>Blowing Bubbles</h1>
+        <h3>Click on the button to make a bubble</h3>
+ 
+        <!-- Add id to image -->
+        <img id="image" src=
+"https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            alt="GFG image" />
+    </div>
+ 
+    <button type="button"
+        onclick="show()" id="btnID">
+        Click Button
+    </button>
+ 
+    <script>
+        function show() {
+ 
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('image')
+                    .style.display = "block";
+ 
+            document.getElementById('btnID')
+                    .style.display = "none";
+        }
+    </script>
+    <script>
+        function callAPI() {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText);
+            }
+          };
+          xhr.open("GET", "https://www.boredapi.com/api/activity", true);
+          xhr.send();
+        }
+      </script>
+      <button onclick="callAPI()">Make a call to API</button>
 </body>
+ 
 </html>
