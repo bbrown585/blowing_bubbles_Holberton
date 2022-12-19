@@ -1,71 +1,62 @@
-
 <!DOCTYPE html>
 <html>
- 
 <head>
     <style>
- 
         /* Set display to none for image*/
         #image {
             display: none;
         }
     </style>
 </head>
- 
 <body>
     <div>
         <h1>Green Bubbles?</h1>
         <h3>Click on the button to see a bubble</h3>
-          <link href="style.css" rel="stylesheet">
+          <link href=“style.css” rel=“stylesheet”>
         <!-- Add id to image -->
-        <img id="image" src=
-"https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
-            alt="GFG image" />
+        <img id=“image” src=
+“https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80”
+            alt=“GFG image” />
     </div>
- 
-    <button type="button"
-        onclick="show()" id="btnID">
-        Click Button
+    <button type=“button”
+        onclick=“show()” id=“btnID”>
+        Text Bubble
     </button>
- 
     <script>
         function show() {
- 
             /* Access image by id and change
             the display property to block*/
-            document.getElementById('image')
-                    .style.display = "block";
- 
-            document.getElementById('btnID')
-                    .style.display = "none";
+            document.getElementById(‘image’)
+                    .style.display = “block”;
+            document.getElementById(‘btnID’)
+                    .style.display = “none”;
         }
     </script>
     <script>
         function getActivity() {
-          var xhr = new XMLHttpRequest();
-          xhr.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-              console.log(this.responseText);
-            }
-          };
-          xhr.open("GET", "https://www.boredapi.com/api/activity", true);
-          xhr.send();
-        }
-      
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                const activityElement = document.getElementById(‘activity’);
+                activityElement.innerHTML = this.responseText;
+              }
+            };
+            xhr.open(“GET”, “https://www.boredapi.com/api/activity”, true);
+            xhr.send();
+          }
         function getQuote() {
-          fetch('https://api.quotable.io/random')
+          fetch(‘https://api.quotable.io/random’)
             .then(response => response.json())
             .then(data => {
-              const quoteElement = document.getElementById('quote');
-              quoteElement.innerHTML = `"${data.content}" - ${data.author}`;
+              const quoteElement = document.getElementById(‘quote’);
+              quoteElement.innerHTML = `“${data.content}” - ${data.author}`;
             })
             .catch(error => console.error(error));
         }
       </script>
-      
-      <button onclick="getActivity()">Activity of the day</button>
-      <button onclick="getQuote()">Quote of the day</button>
-      <div id="quote"></div>      
+      <button onclick=“getActivity()“>Activity of the day</button>
+      <button onclick=“getQuote()“>Quote of the day</button>
+      <div id=“quote”></div>
+      <div id=“activity”></div>
       </body>
- 
 </html>
