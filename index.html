@@ -1,10 +1,72 @@
 <!DOCTYPE html>
 <html>
- 
+    <head>
+      <title>Welcome to The Hack Sprint</title>
+      <style>
+        body {
+          font-family: sans-serif;
+        }
+        h1 {
+          font-size: 2em;
+          color: #333;
+        }
+        p {
+          font-size: 1.2em;
+          line-height: 1.5;
+        }
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .btn {
+          display: inline-block;
+          padding: 0.5em 1em;
+          background-color: #333;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          font-size: 1em;
+          cursor: pointer;
+        }
+        .btn:hover {
+          background-color: rgb(68, 68, 68);
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+        <style>
+          .nav-item {
+            display: inline-block;
+          }
+        </style>
+        <style>
+          body {
+            background: url('https://img.freepik.com/premium-psd/transparent-water-droplets_125452-1142.jpg?w=1800') no-repeat center center / cover;
+          }
+        </style>
+        <nav>
+          <a class="nav-item" href="">Home</a>
+          <a class="nav-item" href="">About</a>
+          <a class="nav-item" href="">Contact Us</a>
+          <a color: black;
+        </nav>
+      </header>
+      <main>
+        <div class="container">
+          <h1>Welcome to The Hack Sprint</h1>
+          <p>A simple webpage where we showcase an API with some basic functionality.</p>
+          <button class="btn" onclick="alert('Nice You just blew up earth up!')">Do Not Click Me</button>
+        </div>
+      </main>
+      <footer>
+        <div class="container">
+          <p>Holberton School Hacksprint 2022</p>
+        </div>
+      </footer>
+    </body>
 <head>
     <style>
- 
-        /* Set display to none for image*/
         #image {
             display: none;
         }
@@ -13,12 +75,11 @@
  
 <body>
     <div>
-        <h1>Green Bubbles?</h1>
-        <h3>Click on the button to see a bubble</h3>
+        <h2>Welcome to Our Hack Sprint</h2>
+        <h5>Authors: Brandon Brown & Faizal Mamah</h5>
           <link href="style.css" rel="stylesheet">
-        <!-- Add id to image -->
         <img id="image" src=
-"https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
+ "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" 
             alt="GFG image" />
     </div>
  
@@ -29,9 +90,6 @@
  
     <script>
         function show() {
- 
-            /* Access image by id and change
-            the display property to block*/
             document.getElementById('image')
                     .style.display = "block";
  
@@ -47,12 +105,7 @@
                 const activityElement = document.getElementById('activity');
                 const activity = JSON.parse(this.responseText);
                 const activityString = `<p>Activity: ${activity.activity}</p>
-                                        <p>Type: ${activity.type}</p>
-                                        <p>Participants: ${activity.participants}</p>
-                                        <p>Price: ${activity.price}</p>
-                                        <p>Link: ${activity.link}</p>
-                                        <p>Key: ${activity.key}</p>
-                                        <p>Accessibility: ${activity.accessibility}</p>`;
+                                        </p>`;
                 activityElement.innerHTML = activityString;
               }
             };
@@ -75,7 +128,14 @@
 
       <button onclick="getQuote()">Quote of the day</button>
       <div id="quote"></div>   
-      <div id="activity"></div>   
+      <div id="activity"></div>
+    
+      <footer class="my-footer">
+        <div class="container">
+        </div>
+      </footer>
+      
+      
       </body>
  
 </html>
